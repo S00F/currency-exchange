@@ -34,8 +34,8 @@ function App() {
   useEffect(() => {
     if (isPolling) {
       const intervalID = setInterval(() => {
-        let min = 1.05;
-        let max = 1.15;
+        const min = 1.05;
+        const max = 1.15;
         const rand = roundedNumber(min + Math.random() * (max - min));
         setRate(rand);
       }, 3000);
