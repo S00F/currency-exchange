@@ -21,21 +21,15 @@ function App() {
   const [calculatedEur, setCalculatedEur] = useState(1);
   const [calculatedUsd, setCalculatedUsd] = useState(1);
 
-  useEffect(() => {
-    if (eurToUsd) {
-      setCalculatedUsd(eur * rate);
-    } else {
-      setCalculatedEur(usd / rate);
-    }
-  }, [rate, eurToUsd]);
+
 
   useEffect(() => {
     if (eurToUsd) {
       setCalculatedUsd(eur * rate);
     } else {
-      setCalculatedEur(usd / rate);
+      setCalculatedEur(usd * rate);
     }
-  }, [rate, eurToUsd]);
+  }, [rate, eurToUsd, eur, usd]);
 
   useEffect(() => {
     if (isPolling) {
@@ -67,9 +61,11 @@ function App() {
   const handleClickSwitch = () => {
     setEurToUsd((eurToUsd) => !eurToUsd);
     if (eurToUsd) {
+      setRate(1/rate)
       setCalculatedEur(eur);
       setUsd(calculatedUsd);
     } else {
+      setRate(1/rate)
       setCalculatedUsd(usd);
       setEur(calculatedEur);
     }
@@ -175,7 +171,7 @@ function App() {
                     id="eur"
                     label="Taux de change"
                     variant="outlined"
-                    value={roundedNumber(1 / rate)}
+                    value={roundedNumber(rate)}
                     onChange={handleChangeRate}
                     style={{ width: 200, marginBottom: 30 }}
                   />
