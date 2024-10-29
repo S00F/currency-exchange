@@ -3,7 +3,7 @@
 
 ### ` 7. désactivation du taux réel lors d'une variation de 2%`
 
-- pour se faire il fautt rajouter un trigger (useffect ) écoutant la variation % le taux réel (random) et faire un switch si sa dépasse les 2%
+- pour se faire il fautt rajouter un trigger (useffect ) écoutant sur une variable  de la variation par rapport au taux réel (random) et faire un switch si sa dépasse les 2%
 
 ### ` 8. tableau d'historique`
 
